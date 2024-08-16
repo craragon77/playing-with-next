@@ -20,7 +20,7 @@ export default function Home() {
     <>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
         <div className="quarter">
-          <img src="AragonChris.jpg" alt="test"/>
+          <img src="/AragonChris.jpg" alt="test"/>
           <h1>Hi! I'm Chris, a web and GIS developer based on New England</h1>
         </div>
         <div className="quarter">
