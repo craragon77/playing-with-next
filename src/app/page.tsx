@@ -1,3 +1,5 @@
+'use client'
+import { useState } from "react";
 import Image from "next/image";
 import projects from './projects'; 
 import Headshot from "/fotos/AragonChris.jpg";
@@ -6,14 +8,18 @@ import FFI2 from "./fotos/FFI2.png";
 import FFI3 from "./fotos/FFI3.png";
 import FFI4 from "./fotos/FFI4.png";
 import FFI5 from "./fotos/FFI5.png";
+//PACKAGES
+
 
 
 export default function Home() {
+  const [showProjects, setShowProjects] = useState(false);
+  const [showBio, setShowBio] = useState(false);
 
   function mapProjects(){
     return projects.map((projects, idx) => {
       //TODO - add photo mapping from project.js
-      return <div id={`mapped-projects-${idx}`}>
+      return <div id={`mapped-projects-${idx}`} className={`${showProjects ? '' : 'hidden'}`}>
         <p>Name: {projects.name}</p><br/>
         <p>Description: {projects.description}</p>
         <p>url to live site: <a target="_blank" href={projects.url}>{projects.url}</a></p>
@@ -36,8 +42,8 @@ export default function Home() {
           <h3>Award-winning Web and GIS Developer</h3>
           <ul className="contact-info">
             <li><a href="https://www.linkedin.com/in/christopher-aragon/" target="_blank">LinkedIn</a></li>
-            <li><a href="https://github.com/craragon77" target="_blank"/>Github</li>
-            <li><a href="https://www.stone-env.com/who-we-are/our-team/chris-aragon/"/>Company</li>
+            <li><a href="https://github.com/craragon77" target="_blank">Github</a></li>
+            <li><a href="https://www.stone-env.com/who-we-are/our-team/chris-aragon/" target="_blank">Company</a></li>
             <li>Resume</li>
           </ul>
         </div>
@@ -48,7 +54,17 @@ export default function Home() {
             Feel free to reach out! I love sharing my work and I love learning what other developers and engineers are working on too! Outside of work, I like hiking, cycling, and playing music.</p>
         </div> */}
         <div className="quarter black">
-          <h2>Portfolio</h2>
+          <h2 onClick={() => setShowBio(!showBio)}>About Me</h2>
+          <div className={`${showBio ? '' : 'hidden'}`}>
+            <p>
+              I see programming, data structures, and algorithms as a powerful, dynamic, and quasi-magical tool. <br/>
+              Having worked as a software developer in the education, healthcare, and sustainability fields,  I know the interdisciplinary applications of programming and how to solve complex problems. <br/>
+              Feel free to reach out! I love sharing my work and I love learning what other developers and engineers are working on too! Outside of work, I like hiking, cycling, and playing music.
+            </p>
+          </div>
+        </div>
+        <div className="quarter black">
+          <h2 onClick={() => setShowProjects(!showProjects)}>Portfolio <span></span></h2>
           {mapProjects()}
         </div>
       </main>
