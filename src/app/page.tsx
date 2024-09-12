@@ -9,8 +9,15 @@ import FFI3 from "./fotos/FFI3.png";
 import FFI4 from "./fotos/FFI4.png";
 import FFI5 from "./fotos/FFI5.png";
 //PACKAGES
+import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+import { MdKeyboardDoubleArrowDown } from "react-icons/md";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
 
-
+//CSS STUFF
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 export default function Home() {
   const [showProjects, setShowProjects] = useState(false);
@@ -24,9 +31,33 @@ export default function Home() {
         <p>Description: {projects.description}</p>
         <p>url to live site: <a target="_blank" href={projects.url}>{projects.url}</a></p>
         <div className="project-image-container">
+          <Swiper
+            // slidesPerView={3}
+            // onSlideChange={() => console.log('slide change')}
+            // pagination={{ clickable: true }}
+            // navigation={true}
+            // direction={"horizontal"}
+            navigation
+            pagination={{ type: 'fraction', clickable: true}}
+            modules={{Navigation, Pagination}}
+            className="rounded-lg"
+          >
           {projects.images.map((photo, localIdx) => {
-            return <img src={`/fotos/${photo}`} alt={`image of ${photo} number ${localIdx + 1}`}/>
+            // return <img src={`/fotos/${photo}`} alt={`image of ${photo} number ${localIdx + 1}`}/>
+            return (
+                <SwiperSlide id={`${photo}-${localIdx}`}>
+                  {/* <img src={`/fotos/${photo}`} alt={`image of ${photo} number ${localIdx + 1}`}/> */}
+                  <Image
+                    src={`/fotos/${photo}`}
+                    alt={`image of ${photo} number ${localIdx + 1}`}
+                    // className='block w-h'
+                    width={600}
+                    height={600}
+                  />
+                </SwiperSlide>
+            )
           })}
+          </Swiper>
         </div>
       </div>
     });
@@ -54,7 +85,7 @@ export default function Home() {
             Feel free to reach out! I love sharing my work and I love learning what other developers and engineers are working on too! Outside of work, I like hiking, cycling, and playing music.</p>
         </div> */}
         <div className="quarter black">
-          <h2 onClick={() => setShowBio(!showBio)}>About Me</h2>
+          <h2 onClick={() => setShowBio(!showBio)}>About Me <span>{showBio ? <MdKeyboardDoubleArrowDown/> : <MdKeyboardDoubleArrowRight/>}</span></h2>
           <div className={`${showBio ? '' : 'hidden'}`}>
             <p>
               I see programming, data structures, and algorithms as a powerful, dynamic, and quasi-magical tool. <br/>
@@ -64,7 +95,7 @@ export default function Home() {
           </div>
         </div>
         <div className="quarter black">
-          <h2 onClick={() => setShowProjects(!showProjects)}>Portfolio <span></span></h2>
+          <h2 onClick={() => setShowProjects(!showProjects)}>Portfolio <span>{showProjects ? <MdKeyboardDoubleArrowDown/> : <MdKeyboardDoubleArrowRight/>}</span><span></span></h2>
           {mapProjects()}
         </div>
       </main>
