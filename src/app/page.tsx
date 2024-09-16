@@ -12,7 +12,7 @@ import FFI5 from "./fotos/FFI5.png";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 //CSS STUFF
 import 'swiper/css';
@@ -26,26 +26,22 @@ export default function Home() {
   function mapProjects(){
     return projects.map((projects, idx) => {
       //TODO - add photo mapping from project.js
-      return <div id={`mapped-projects-${idx}`} className={`${showProjects ? '' : 'hidden'}`}>
-        <p>Name: {projects.name}</p><br/>
+      return <div key={`projects.name-${idx}`} id={`projects.name-${idx}`} className={`${showProjects ? '' : 'hidden'}`}>
+        <p>Project Name: {projects.name}</p><br/>
         <p>Description: {projects.description}</p>
         <p>url to live site: <a target="_blank" href={projects.url}>{projects.url}</a></p>
         <div className="project-image-container">
           <Swiper
-            // slidesPerView={3}
-            // onSlideChange={() => console.log('slide change')}
-            // pagination={{ clickable: true }}
-            // navigation={true}
-            // direction={"horizontal"}
             navigation
-            pagination={{ type: 'fraction', clickable: true}}
-            modules={{Navigation, Pagination}}
+            pagination={{ clickable: true}}
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
             className="rounded-lg"
+            key={`projects.name-${idx}`}
           >
           {projects.images.map((photo, localIdx) => {
             // return <img src={`/fotos/${photo}`} alt={`image of ${photo} number ${localIdx + 1}`}/>
             return (
-                <SwiperSlide id={`${photo}-${localIdx}`}>
+                <SwiperSlide id={`${photo}-${localIdx}`} key={`${photo}-${localIdx}`}>
                   {/* <img src={`/fotos/${photo}`} alt={`image of ${photo} number ${localIdx + 1}`}/> */}
                   <Image
                     src={`/fotos/${photo}`}
