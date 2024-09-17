@@ -31,6 +31,7 @@ export default function Home() {
         <p>Description: {projects.description}</p>
         <p>url to live site: <a target="_blank" href={projects.url}>{projects.url}</a></p>
         <div className="project-image-container">
+          {/* helpful youtube tutorial on Swiper = https://www.youtube.com/watch?v=imhdh4xCh7I&t=488s */}
           <Swiper
             navigation
             pagination={{ clickable: true}}
@@ -41,12 +42,13 @@ export default function Home() {
           {projects.images.map((photo, localIdx) => {
             // return <img src={`/fotos/${photo}`} alt={`image of ${photo} number ${localIdx + 1}`}/>
             return (
-                <SwiperSlide id={`${photo}-${localIdx}`} key={`${photo}-${localIdx}`}>
+                <SwiperSlide id={`${photo}-${localIdx}`} key={`${photo}-${localIdx}`} className="swiper-slide">
                   {/* <img src={`/fotos/${photo}`} alt={`image of ${photo} number ${localIdx + 1}`}/> */}
                   <Image
                     src={`/fotos/${photo}`}
                     alt={`image of ${photo} number ${localIdx + 1}`}
                     // className='block w-h'
+                    className="swiper-image"
                     width={600}
                     height={600}
                   />
@@ -81,7 +83,7 @@ export default function Home() {
             Feel free to reach out! I love sharing my work and I love learning what other developers and engineers are working on too! Outside of work, I like hiking, cycling, and playing music.</p>
         </div> */}
         <div className="quarter black">
-          <h2 onClick={() => setShowBio(!showBio)}>About Me <span>{showBio ? <MdKeyboardDoubleArrowDown/> : <MdKeyboardDoubleArrowRight/>}</span></h2>
+          <h2 className="subheader-info" onClick={() => setShowBio(!showBio)}>About Me <span>{showBio ? <MdKeyboardDoubleArrowDown/> : <MdKeyboardDoubleArrowRight/>}</span></h2>
           <div className={`${showBio ? '' : 'hidden'}`}>
             <p>
               I see programming, data structures, and algorithms as a powerful, dynamic, and quasi-magical tool. <br/>
@@ -91,7 +93,7 @@ export default function Home() {
           </div>
         </div>
         <div className="quarter black">
-          <h2 onClick={() => setShowProjects(!showProjects)}>Portfolio <span>{showProjects ? <MdKeyboardDoubleArrowDown/> : <MdKeyboardDoubleArrowRight/>}</span><span></span></h2>
+          <h2 className="subheader-info" onClick={() => setShowProjects(!showProjects)}>Portfolio <span>{showProjects ? <MdKeyboardDoubleArrowDown/> : <MdKeyboardDoubleArrowRight/>}</span><span></span></h2>
           {mapProjects()}
         </div>
       </main>

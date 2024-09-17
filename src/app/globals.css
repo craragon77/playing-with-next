@@ -22,22 +22,40 @@ main{
   border: 2px solid gray;
 
   h1{
+    /* ratio = .6 */
     font-size: 25px;
     text-align: center;
   }
 
   h2{
+    /* ratio with text = .75 */
     font-size: 20px;
   }
 
   h3{
+    /* ratio with text =  .8*/
     text-align: center;
     font-size: 18px;
   }
+
+  p{
+    font-size: 15px;
+  }
+
+  span{
+    margin: 10px;
+  }
+}
+
+.subheader-info{
+  display: flex;
+  align-items: center;
+
 }
 
 .contact-info{
   display: flex;
+  align-items: center;
   justify-content: space-evenly;
 }
 
@@ -60,4 +78,37 @@ main{
 
 .hidden{
   display:none;
+}
+
+.wrap-test{
+  display: flex;
+  align-items: center;
+}
+
+.swiper-slide{
+  display:flex;
+  /* background: #eee; */
+  align-items: center;
+  justify-content:center;
+  align-self: center;
+}
+
+@media screen and (min-width: 701px){
+  .quarter{
+    p {
+      font-size: 22px;
+    }
+
+    h3{
+      font-size: 28px;
+    }
+
+    h2{
+      font-size: 30px;
+    }
+
+    h1{
+      font-size: 37px; 
+    }
+  }
 }
