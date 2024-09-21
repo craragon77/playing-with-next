@@ -43,15 +43,15 @@ export default function Home() {
             // return <img src={`/fotos/${photo}`} alt={`image of ${photo} number ${localIdx + 1}`}/>
             return (
                 <SwiperSlide id={`${photo}-${localIdx}`} key={`${photo}-${localIdx}`} className="swiper-slide">
-                  {/* <img src={`/fotos/${photo}`} alt={`image of ${photo} number ${localIdx + 1}`}/> */}
-                  <Image
+                  <img src={`/fotos/${photo}`} alt={`image of ${photo} number ${localIdx + 1}`}/>
+                  {/* <Image
                     src={`/fotos/${photo}`}
                     alt={`image of ${photo} number ${localIdx + 1}`}
                     // className='block w-h'
                     className="swiper-image"
                     width={600}
                     height={600}
-                  />
+                  /> */}
                 </SwiperSlide>
             )
           })}
