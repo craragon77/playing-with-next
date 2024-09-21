@@ -69,7 +69,7 @@ export default function Home() {
             <li><a href="https://www.linkedin.com/in/christopher-aragon/" target="_blank">LinkedIn</a></li>
             <li><a href="https://github.com/craragon77" target="_blank">Github</a></li>
             <li><a href="https://www.stone-env.com/who-we-are/our-team/chris-aragon/" target="_blank">Company</a></li>
-            <li>Resume</li>
+            <li><a href="chris-resume-1.pdf" target="_blank">Resume</a></li>
           </ul>
         </div>
         {/* <div className="quarter white">
