@@ -40,15 +40,14 @@ export default function Home() {
             key={`projects.name-${idx}`}
           >
           {projects.images.map((photo, localIdx) => {
-            // return <img src={`/fotos/${photo}`} alt={`image of ${photo} number ${localIdx + 1}`}/>
             return (
-                <SwiperSlide id={`${photo}-${localIdx}`} key={`${photo}-${localIdx}`} className="swiper-slide">
-                  <img 
-                    src={`/fotos/${photo}`} 
-                    alt={`image of ${photo} number ${localIdx + 1}`}
-                    className="portfolio-slide"
-                  />
-                </SwiperSlide>
+              <SwiperSlide id={`${photo}-${localIdx}`} key={`${photo}-${localIdx}`} className="swiper-slide">
+                <img 
+                  src={`/fotos/${photo}`} 
+                  alt={`image of ${photo} number ${localIdx + 1}`}
+                  className="portfolio-slide"
+                />
+              </SwiperSlide>
             )
           })}
           </Swiper>
@@ -69,15 +68,9 @@ export default function Home() {
             <li><a href="https://www.linkedin.com/in/christopher-aragon/" target="_blank">LinkedIn</a></li>
             <li><a href="https://github.com/craragon77" target="_blank">Github</a></li>
             <li><a href="https://www.stone-env.com/who-we-are/our-team/chris-aragon/" target="_blank">Company</a></li>
-            <li><a href="chris-resume-1.pdf" target="_blank">Resume</a></li>
+            <li><a href="Chris Aragon-Resume-10_5_24.pdf" target="_blank">Resume</a></li>
           </ul>
         </div>
-        {/* <div className="quarter white">
-          <p>
-            I see programming, data structures, and algorithms as a powerful, dynamic, and quasi-magical tool. <br/>
-            Having worked as a software developer in the education, healthcare, and sustainability fields,  I know the interdisciplinary applications of programming and how to solve complex problems. <br/>
-            Feel free to reach out! I love sharing my work and I love learning what other developers and engineers are working on too! Outside of work, I like hiking, cycling, and playing music.</p>
-        </div> */}
         <div className="quarter black">
           {/* TO-DO: MAKE ALL THE BUTTONS HERE A11Y FRIENDLY IN THE SHADOW DOM */}
           <h2 className="subheader-info" onClick={() => setShowBio(!showBio)}>About Me <span>{showBio ? <MdKeyboardDoubleArrowDown/> : <MdKeyboardDoubleArrowRight/>}</span></h2>
@@ -94,15 +87,6 @@ export default function Home() {
           {mapProjects()}
         </div>
       </main>
-      {/* <footer className="white">
-        <div>
-          <p>Feel free to reach out!</p>
-          <ul>
-            <li><a href="https://www.linkedin.com/in/christopher-aragon/" target="_blank">LinkedIn</a></li>
-            <li><a href="https://github.com/craragon77" target="_blank"/>Github</li>
-          </ul>
-        </div>
-      </footer> */}
     </>
   );
 }
